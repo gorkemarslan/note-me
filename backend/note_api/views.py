@@ -6,7 +6,7 @@ from note_api.serializers import NoteSerializers
 
 
 @api_view(['GET'])
-def getRoutes(request):
+def get_routes(request):
 
     routes = [
         {
@@ -47,4 +47,11 @@ def getRoutes(request):
 def get_note_list(request):
     note_list = Note.objects.all().order_by('updated_at')
     serializer = NoteSerializers(note_list, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_note_detail(request, pk):
+    note= Note.objects.get(pk=pk)
+    serializer = NoteSerializers(note, many=False)
     return Response(serializer.data)
