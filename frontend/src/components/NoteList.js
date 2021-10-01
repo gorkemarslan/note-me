@@ -5,18 +5,18 @@ function NoteList() {
 
     const [notes, setNotes] = useState([])
     useEffect(() => {
-        const fetchNote = async () => {
-            const response = await axios.get('api/v1/notes/');
+        const fetchNotes = async () => {
+            const response = await axios.get('/api/v1/notes/');
             const notes = response.data;
             setNotes(notes);
         };
 
-        fetchNote();
+        fetchNotes();
     }, [])
     return (
         <div>
             {notes.map((note, index) => (
-                <h3 key={note.id}>{note.body}</h3>
+                <h3 key={index}>{note.body}</h3>
             ))}
         </div>
     )

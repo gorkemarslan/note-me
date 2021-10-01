@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Header from './components/Header'
 import NoteList from './components/NoteList';
+import NoteDetail from './components/NoteDetail';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="App">
         <Header />
         <Route path="/" exact component={NoteList} />
+        <Route path="/:id" component={NoteDetail} />
     </div>
     </Router>
   );
