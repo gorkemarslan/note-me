@@ -1,10 +1,21 @@
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Header from './components/Header'
+import NoteList from './components/NoteList';
 
 function App() {
   return (
-    <div className="App">
-      Note App
+    <Router>
+      <div className="App">
+        <Header />
+        <Route path="/" exact component={NoteList} />
     </div>
+    </Router>
   );
 }
 
